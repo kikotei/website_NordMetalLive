@@ -1,0 +1,39 @@
+MCD sur http://mocodo.wingi.net/
+
+
+
+
+
+
+CONCERT : id_concert, prix, Description, Affiche
+SE SITUE, 11 CONCERT, 1N LIEU
+LIEU : id_lieu, nom, adresse, Description, Horaires, Contact, Plan
+
+JOUE, 1N GROUPE, 1N CONCERT: date
+GROUPE: id_groupe, nom, Bio, Médias
+:
+
+
+
+
+
+
+
+
+
+
+
+
+
+mocodo.old
+JOUE, 1N GROUPE, 1N CONCERT: date
+GROUPE: id_groupe, nom, liste_membres, Description, Médias
+PART EN, 1N GROUPE, 11 TOURNEE
+
+CONCERT : id_concert, prix, Description, Affiche
+SE DEROULE, 1N TOURNEE, 1N CONCERT
+TOURNEE : id_tournee, nom
+
+SE SITUE, 11 CONCERT, 1N LIEU
+LIEU : id_lieu, nom, adresse, Description, Contact
+:
