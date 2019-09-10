@@ -1,1 +1,4 @@
-Bonjour et bienvenue sur le git du site "Nord Métal Live"
+Bonjour et bienvenue sur le git du site "Nord MÃ©tal Live"
+
+
+ceci est un test
