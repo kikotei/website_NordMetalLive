@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Nord Métal Live - Ajout</title>
+	<meta charset="utf-8" />
+	<meta name="author" content="Desreveaux Nathan & Richard Jerom">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<header class="border border-primary">
+	
+<img class="mx-auto" src="conception\maquette\logo.jpg" style="display: block"/>
+
+</header>
+<body>
+	
+<form id="formulaire">
+	<div class="form-group col-md-2">
+		<select class="form-control form-control-sm">
+			<option value="" selected>Choisissez un lieu</option>
+			<option value="Bar1">Bar1</option>
+			<option value="Bar2">Bar2</option>
+			<option value="Bar3">Bar3</option>
+			<option value="Bar4">Bar4</option>
+			<option value="Bar5">Bar5</option>
+		</select></div>
+
+	<div id="groupe">
+		<div class="form-row">
+			<div class="form-group col-md-2"><select class="form-control form-control-sm" >
+				<option value="" selected>Choisissez un groupe</option>
+				<option value="Groupe1">Groupe1</option>
+				<option value="Groupe2">Groupe2</option>
+				<option value="Groupe3">Groupe3</option>
+				<option value="Groupe4">Groupe4</option>
+				<option value="Groupe5">Groupe5</option>
+			</select></div>
+
+		<div><button class="btn btn-outline-secondary" type="button" id="button" onclick="ajoute()">Ajouter un groupe</button></div>
+</div></div>
+
+<div class="form-group col-md-2">
+	<input type="text" name="concertNom" value="Nom du concert"/>
+
+</div>
+</form>
+
+
+</footer>
+<style type="text/css"> 
+	header { margin: 5px 20px; } 
+	footer { margin: 5px 20px; padding: 5px; }
+	.col-md-3 { margin: 0 3%; height: 500px;}
+	.center {text-align: center;}
+
+
+</style>
+<script type="text/javascript">
+	
+
+	var i = 0;
+	function supprime(indice){
+		var div = document.getElementById("groupe" + indice);
+		console.log(div);
+		document.getElementById("groupe").removeChild(div);
+
+
+	}
+
+	function ajoute(){
+		var groupe = document.getElementById("groupe");
+		let selectgroupe ='<div class="form-row" id="groupe'+ i + '"><div class="form-group col-md-2"><select class="form-control form-control-sm" ><option value="" selected>Choisissez un groupe</option>				<option value="Groupe1">Groupe1</option>				<option value="Groupe2">Groupe2</option>				<option value="Groupe3">Groupe3</option>				<option value="Groupe4">Groupe4</option>				<option value="Groupe5">Groupe5</option>			</select></div><button class="btn btn-dark btn-sm form-group" type="button" onclick="supprime('+ i + ')">X</button></div>';		
+		groupe.insertAdjacentHTML('beforeend',selectgroupe);
+		i++;
+	}
+</script>
+</html>
