@@ -14,9 +14,21 @@
 
 </header>
 <body>
-	
-<form id="formulaire">
-	<div class="form-group col-md-2">
+	<div class="container-fluid">
+
+<button id="afficheDate">Ajouter une date</button>
+<button id="afficheGroupe">Ajouter un groupe</button>
+<button id="afficheSalle">Ajouter une salle</button>
+
+
+<br><br>
+
+<form id="formDate" class="border border-secondary container-fluid formContainer">
+	<h2>Ajouter une date de concert</h2>
+
+	<div class="form-group">
+		<div class="form-row">
+			<div>
 		<select class="form-control form-control-sm">
 			<option value="" selected>Choisissez un lieu</option>
 			<option value="Bar1">Bar1</option>
@@ -24,11 +36,11 @@
 			<option value="Bar3">Bar3</option>
 			<option value="Bar4">Bar4</option>
 			<option value="Bar5">Bar5</option>
-		</select></div>
+		</select></div> </div></div>
 
-	<div id="groupe">
+	<div id="groupe" class="form-group">
 		<div class="form-row">
-			<div class="form-group col-md-2"><select class="form-control form-control-sm" >
+			<div><select class="form-control form-control-sm" >
 				<option value="" selected>Choisissez un groupe</option>
 				<option value="Groupe1">Groupe1</option>
 				<option value="Groupe2">Groupe2</option>
@@ -37,22 +49,100 @@
 				<option value="Groupe5">Groupe5</option>
 			</select></div>
 
-		<div><button class="btn btn-outline-secondary" type="button" id="button" onclick="ajoute()">Ajouter un groupe</button></div>
-</div></div>
+		<button class="btn btn-outline-secondary btn-sm form-group" type="button" id="button" onclick="ajoute()">Ajouter un groupe</button>
+</div></div> 
 
-<div class="form-group col-md-2">
-	<input type="text" name="concertNom" value="Nom du concert"/>
+<div class="form-group"> Nom du concert : 
+	<input type="text" name="concertNom" value=""/>
 
+
+ 
 </div>
+<div class="form-group">Prix d'entrée : 
+	<input id="prix" type="text" name="concertPrix" value="0"/> €
+</div>
+
+<div class="form-group">
+	  <label>Donnez envie de venir au concert :</label>
+    <textarea class="form-control" rows="5"></textarea>
+</div>
+<div class="custom-file form-group">
+  <input type="file" class="custom-file-input" id="affiche"/>
+  <label class="custom-file-label" for="affiche">Ajouter une affiche</label>
+</div>
+
+<button type="submit" class="btn btn-primary mb-2">Envoyer </button>
 </form>
 
+<!-- ---------------------------------- -->
 
+<form id="formGroup" class="border border-secondary container-fluid formContainer">
+	<h2>Ajouter un groupe</h2>
+
+	<div class="form-group">Nom du groupe :  
+		<input id="groupName" type="text" name="groupName"/>
+</div>
+
+<div class="form-group">
+	  <label>Qui êtes vous ?</label>
+    <textarea class="form-control" rows="5"></textarea>
+</div>
+
+<div class="form-group">
+	  <label>liens vers un site/réseaux sociaux</label>
+    <textarea class="form-control" rows="3"></textarea>
+</div>
+
+<div class="custom-file form-group">
+  <input type="file" class="custom-file-input" id="affiche"/>
+  <label class="custom-file-label" for="affiche">Ajouter le logo ou une photo du groupe</label>
+</div>
+
+<button type="submit" class="btn btn-primary mb-2">Envoyer </button>
+</form>
+	
+<!-- ---------------------------------- -->
+
+<form id="formSalle" class="border border-secondary container-fluid formContainer">
+	<h2>Ajouter une salle</h2>
+
+	<div class="form-group">Nom de la salle/ du bar :  
+		<input id="groupName" type="text" name="groupName"/>
+</div>
+
+	<div class="form-group">Adresse : 
+		<input id="groupName" type="text" name="groupName"/>
+</div>
+
+<div class="form-group">
+	  <label>Qui êtes vous ?</label>
+    <textarea class="form-control" rows="5"></textarea>
+</div>
+
+<div class="form-group">
+	  <label>Horaires d'ouverture : </label>
+    <textarea class="form-control" rows="3"></textarea>
+</div>
+
+<div class="form-group">
+	  <label>Vous contacter : </label>
+    <textarea class="form-control" rows="3"></textarea>
+</div>
+
+<button type="submit" class="btn btn-primary mb-2">Envoyer </button>
+</form>
+
+</div>
 </footer>
 <style type="text/css"> 
 	header { margin: 5px 20px; } 
 	footer { margin: 5px 20px; padding: 5px; }
-	.col-md-3 { margin: 0 3%; height: 500px;}
 	.center {text-align: center;}
+	form { padding: 10px 0; }
+	.btn {margin: 0 5px 10px 5px;}
+	#prix {text-align: right; padding: 0px 6px; max-width: 70px;}
+	h2 {text-align: center;}
+	.formContainer {visibility: hidden; position: absolute; left:0px; margin: 5px; right:5px;}
 
 
 </style>
@@ -70,9 +160,43 @@
 
 	function ajoute(){
 		var groupe = document.getElementById("groupe");
-		let selectgroupe ='<div class="form-row" id="groupe'+ i + '"><div class="form-group col-md-2"><select class="form-control form-control-sm" ><option value="" selected>Choisissez un groupe</option>				<option value="Groupe1">Groupe1</option>				<option value="Groupe2">Groupe2</option>				<option value="Groupe3">Groupe3</option>				<option value="Groupe4">Groupe4</option>				<option value="Groupe5">Groupe5</option>			</select></div><button class="btn btn-dark btn-sm form-group" type="button" onclick="supprime('+ i + ')">X</button></div>';		
+		let selectgroupe ='<div class="form-row" id="groupe'+ i + '"><div><select class="form-control form-control-sm" ><option value="" selected>Choisissez un autre groupe</option>				<option value="Groupe1">Groupe1</option>				<option value="Groupe2">Groupe2</option>				<option value="Groupe3">Groupe3</option>				<option value="Groupe4">Groupe4</option>				<option value="Groupe5">Groupe5</option>			</select></div><button class="btn btn-dark btn-sm form-group" type="button" onclick="supprime('+ i + ')">X</button></div>';		
 		groupe.insertAdjacentHTML('beforeend',selectgroupe);
 		i++;
 	}
+
+
+
+var buttonDate = document.getElementById("afficheDate");
+var buttonGroupe = document.getElementById("afficheGroupe");
+var buttonSalle = document.getElementById("afficheSalle");
+
+var formDate = document.getElementById("formDate");;
+var formGroup = document.getElementById("formGroup");;
+var formSalle = document.getElementById("formSalle");;
+
+	function afficheDate() {
+		formDate.setAttribute("style","visibility:visible;");
+		formSalle.setAttribute("style","visibility:hidden;");
+		formGroup.setAttribute("style","visibility:hidden;");
+
+
+	}
+
+	function afficheGroupe() {
+		formDate.setAttribute("style","visibility:hidden;");
+		formSalle.setAttribute("style","visibility:hidden;");
+		formGroup.setAttribute("style","visibility:visible;");
+	}
+
+	function afficheSalle() {
+		formDate.setAttribute("style","visibility:hidden;");
+		formSalle.setAttribute("style","visibility:visible;");
+		formGroup.setAttribute("style","visibility:hidden;");
+	}
+
+buttonGroupe.addEventListener("click",function() {afficheGroupe()});
+buttonSalle.addEventListener("click",function() {afficheSalle()});
+buttonDate.addEventListener("click",function() {afficheDate()});
 </script>
 </html>
